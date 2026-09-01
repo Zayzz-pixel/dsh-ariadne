@@ -1,0 +1,88 @@
+{
+  "name": "dsh-ariadne",
+  "version": "0.3.0",
+  "description": "A visual decision workbench for DeepSeek Harness: explore ideas, focus branches, turn choices into execution graphs, and run them one node at a time.",
+  "license": "MIT",
+  "author": "zhouzhizhe",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zayzz-pixel/dsh-ariadne.git"
+  },
+  "homepage": "https://github.com/Zayzz-pixel/dsh-ariadne#readme",
+  "bugs": {
+    "url": "https://github.com/Zayzz-pixel/dsh-ariadne/issues"
+  },
+  "keywords": [
+    "ariadne",
+    "brainstorming",
+    "deepseek-harness",
+    "dsh-plugin",
+    "decision-making",
+    "planning",
+    "workflow",
+    "visualization",
+    "productivity"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./map-state": "./lib/map-state.js",
+    "./execution-state": "./lib/execution-state.js",
+    "./export": "./lib/export.js",
+    "./project-state": "./lib/project-state.js",
+    "./session-maps": "./lib/session-maps.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "lib/map-state.js",
+    "lib/execution-state.js",
+    "lib/export.js",
+    "lib/project-state.js",
+    "lib/session-maps.js",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-connection"
+      ],
+      "platform": "web"
+    }
+  },
+  "dependencies": {
+    "zod": "^4.4.0",
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-tools": "0.1.1-rc.2",
+    "@deepseek-ai/dsh-session": "0.1.1-rc.2",
+    "@deepseek-ai/dsh-session-projection": "0.1.1-rc.2",
+    "@deepseek-ai/dsh-session-persistence": "0.1.1-rc.2",
+    "@deepseek-ai/dsh-storage-domain": "0.1.1-rc.2",
+    "@deepseek-ai/dsh-system-prompt": "0.1.1-rc.2",
+    "@deepseek-ai/dsh-client-runtime": "0.1.1-rc.2",
+    "@deepseek-ai/dsh-client-locale": "0.1.1-rc.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check lib/index.js && node --check lib/map-state.js && node --check lib/execution-state.js && node --check lib/export.js && node --check lib/project-state.js && node --check lib/session-maps.js && node --check lib/client.js && node --test",
+    "validate:map": "node scripts/validate-map.mjs"
+  }
+}

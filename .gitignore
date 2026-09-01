@@ -1,0 +1,13 @@
+node_modules/
+.chrome-tmp/
+.playwright-cli/
+*.tgz
+.DS_Store
+
+# Local product-development evidence. These files remain on this machine but
+# are excluded from the clean public plugin snapshot.
+/output/
+/docs/
+/test/shots/
+/PRD.md
+/PROJECT_BLUEPRINT.md

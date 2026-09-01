@@ -1,0 +1,6 @@
+# dsh-ariadne profile patch layer — one cordis loader entry for the
+# plugin package. Installed by `dsh plugin add`; hand-written profiles may
+# paste this row instead.
+- insert:
+    - id: brainstorm-map
+      name: dsh-ariadne
